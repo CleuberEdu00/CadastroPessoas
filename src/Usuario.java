@@ -4,6 +4,7 @@ public class Usuario {
     private String nome;
     private String cpf;
     private String email;
+
     //Usando o static porque é um contador geral da classe e não de um objeto.
     //Isso é para que não corra o risco de ter Ids duplicados.
     private static int contadorId = 1;

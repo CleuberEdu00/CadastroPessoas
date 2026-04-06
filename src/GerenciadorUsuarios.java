@@ -59,13 +59,14 @@ public class GerenciadorUsuarios {
     */
 
     //Metodo completo que recebe um ID do usuario e procura ele ao longo da lista
-    public void removerUsuario(){
+    public void removerUsuario(int idParaRemover){
         int idBusca = 0;
-        Usuario encontrado = buscarUsuario(idBusca);
+        Usuario encontrado = buscarUsuario(idParaRemover);
         //usa a Variavel que recebeu o número do ID
         if(encontrado != null){
             //Usa o metodo criado para remover um usuario especifico
             removerUsuarioList(encontrado);
+            System.out.println("Usuario com id " + idParaRemover + " removido com sucesso");
         }
         else{
             System.out.println("Usuario não encontrado");
