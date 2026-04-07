@@ -6,6 +6,7 @@ public class Terminal {
     GerenciadorUsuarios g1 = new GerenciadorUsuarios();
     Scanner sc = new Scanner(System.in);
 
+    //Metodo que cria o usuario usando a leitura de dados
     public void criarUsuarioScanner() {
         sc.nextLine();
         String nome, cpf, email;
@@ -17,6 +18,16 @@ public class Terminal {
         System.out.print("Digite o email: ");
         email = sc.nextLine();
         g1.criarUsuario(nome,cpf,email);
+    }
+
+    //Metodo que remove o usuario usando a leitura de dados
+    public void removerUsuarioScanner(){
+        sc.nextLine();;
+        int idParaRemover;
+        System.out.println("== Remover Usuario ==\n");
+        System.out.println("Digite o ID do Usuario que deseja remover: ");
+        idParaRemover = sc.nextInt();
+        g1.removerUsuario(idParaRemover);
     }
 
 
@@ -43,7 +54,7 @@ public class Terminal {
 
                     break;
                 case 4:
-
+                    removerUsuarioScanner();
                     break;
             }
 

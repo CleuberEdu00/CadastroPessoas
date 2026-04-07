@@ -40,6 +40,8 @@ public class GerenciadorUsuarios {
        }
     }
 
+    //Metodo para fazer uma busca individual
+    //Apenas retorna o usuario para poder ser usado em outros metodos
     public Usuario buscarUsuario(int idBusca){
         for(Usuario u : listaUsuarios){
             if(u.getId() == idBusca) {
@@ -58,7 +60,7 @@ public class GerenciadorUsuarios {
                 System.out.println();
     */
 
-    //Metodo completo que recebe um ID do usuario e procura ele ao longo da lista
+    //Metodo completo que recebe um ID do usuario e procura ele ao longo da lista para remove-lo
     public void removerUsuario(int idParaRemover){
         int idBusca = 0;
         Usuario encontrado = buscarUsuario(idParaRemover);
