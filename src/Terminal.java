@@ -7,17 +7,17 @@ public class Terminal {
     Scanner sc = new Scanner(System.in);
 
     //Metodo que cria o usuario usando a leitura de dados
-    public void criarUsuarioScanner() {
+    public void cadastrarUsuarioScanner() {
         sc.nextLine();
         String nome, cpf, email;
-        System.out.println("== Criar usuario ==\n");
+        System.out.println("== Cadastar usuario ==\n");
         System.out.print("Digite o nome: ");
         nome = sc.nextLine();
         System.out.print("Digite o CPF: ");
         cpf = sc.nextLine();
         System.out.print("Digite o email: ");
         email = sc.nextLine();
-        g1.criarUsuario(nome,cpf,email);
+        g1.cadastrarUsuario(nome,cpf,email);
     }
 
     //Metodo que remove o usuario usando a leitura de dados
@@ -27,7 +27,12 @@ public class Terminal {
         System.out.println("== Remover Usuario ==\n");
         System.out.println("Digite o ID do Usuario que deseja remover: ");
         idParaRemover = sc.nextInt();
-        g1.removerUsuario(idParaRemover);
+        if(g1.removerUsuario(idParaRemover)){
+            System.out.println("Usuario com id " + idParaRemover + " removido com sucesso");
+        }
+        else{
+            System.out.println("Usuario não encontrado");
+        }
     }
 
 
@@ -45,7 +50,7 @@ public class Terminal {
 
             switch(opcao){
                 case 1:
-                    criarUsuarioScanner();
+                    cadastrarUsuarioScanner();
                     break;
                 case 2:
                     g1.mostrarUsuarios();
