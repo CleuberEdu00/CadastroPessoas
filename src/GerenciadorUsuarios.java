@@ -21,11 +21,16 @@ public class GerenciadorUsuarios {
 
 
     //Criar um usuario por meio do metodo
-    public void cadastrarUsuario(String nome, String cpf, String email){
+    public boolean cadastrarUsuario(String nome, String cpf, String email){
         Usuario usuario = new Usuario(nome, cpf, email);
-        adicionarUsuarioList(usuario);
+        if(usuario.getNome() != null && usuario.getCpf() != null){
+            adicionarUsuarioList(usuario);
+            return true;
+        }
+        else{
+            return false;
+        }
 
-        System.out.println("Usuario criado com sucesso");
     }
 
     //Metodo responsavel por mostar todos os Usuarios presentes na lista
@@ -51,14 +56,6 @@ public class GerenciadorUsuarios {
         return null;
     }
 
-
-   /* System.out.printf("== Usuario %s ==\n", idBusca);
-                System.out.printf("ID: %s\n", u.getId());
-                System.out.printf("Nome: %s\n", u.getNome());
-                System.out.printf("CPF: %s\n", u.getCpf());
-                System.out.printf("E-mail: %s\n", u.getEmail());
-                System.out.println();
-    */
 
     //Metodo completo que recebe um ID do usuario e procura ele ao longo da lista para remove-lo
     public boolean removerUsuario(int idParaRemover){

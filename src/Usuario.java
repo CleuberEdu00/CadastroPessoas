@@ -15,8 +15,8 @@ public class Usuario {
     public Usuario(String nome, String cpf, String email){
         this.id = contadorId;
         contadorId++;
-        this.nome = nome;
-        this.cpf = cpf;
+        setNome(nome);
+        setCpf(cpf);
         this.email = email;
     }
 
@@ -39,15 +39,30 @@ public class Usuario {
 
     //metodos sets
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public boolean setNome(String nome) {
+        if(nome.matches("[a-zA-Z\\s]+")) {
+            this.nome = nome;
+            return true; //sucesso
+        }
+        return false; //Falha na verificação
+
     }
 
-    public void setCpf(String cpf){
-        this.cpf = cpf;
+    public boolean setCpf(String cpf){
+        String SoNumeros =  cpf.replaceAll("\\D", "");
+        if(SoNumeros.length() == 11){
+            this.cpf = SoNumeros.substring(0, 3) + "." +
+                    SoNumeros.substring(3, 6) + "." +
+                    SoNumeros.substring(6, 9) + "-" +
+                    SoNumeros.substring(9, 11);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
-    public void setEmail(String email){
+    public void setEmail(String email) {
         this.email = email;
     }
 

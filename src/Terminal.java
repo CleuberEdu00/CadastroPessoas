@@ -10,14 +10,23 @@ public class Terminal {
     public void cadastrarUsuarioScanner() {
         sc.nextLine();
         String nome, cpf, email;
-        System.out.println("== Cadastar usuario ==\n");
-        System.out.print("Digite o nome: ");
-        nome = sc.nextLine();
-        System.out.print("Digite o CPF: ");
-        cpf = sc.nextLine();
-        System.out.print("Digite o email: ");
-        email = sc.nextLine();
-        g1.cadastrarUsuario(nome,cpf,email);
+        Boolean sucesso = false;
+        do {
+            System.out.println("== Cadastar usuario ==\n");
+            System.out.print("Digite o nome: ");
+            nome = sc.nextLine();
+            System.out.print("Digite o CPF: ");
+            cpf = sc.nextLine();
+            System.out.print("Digite o email: ");
+            email = sc.nextLine();
+            sucesso = g1.cadastrarUsuario(nome, cpf, email);
+            if(sucesso){
+                System.out.println("Usuario cadastrado com sucesso");
+            }
+            else{
+                System.out.println("Falha ao cadastar usuario");
+            }
+        }while (!sucesso);
     }
 
     //Metodo que remove o usuario usando a leitura de dados
